@@ -43,7 +43,7 @@ app.get('/usuario', verificaToken, (req, res) => {
 
 });
 
-app.post('/usuario', [verificaToken, verificaAdmin], function(req, res) {
+app.post('/usuario', function(req, res) {
 
     let body = req.body;
 
@@ -95,7 +95,7 @@ app.put('/usuario/:id', [verificaToken, verificaAdmin], (req, res) => {
 
 });
 
-app.delete('/usuario/:id', function(req, res) {
+app.delete('/usuario/:id', [verificaToken, verificaAdmin], function(req, res) {
 
     let id = req.params.id;
     let = cambiaEstado = {
