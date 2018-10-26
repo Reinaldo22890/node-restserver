@@ -74,7 +74,7 @@ app.post('/usuario', [verificaToken, verificaAdmin], function(req, res) {
 app.put('/usuario/:id', [verificaToken, verificaAdmin], (req, res) => {
 
     let id = req.params.id;
-    let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado']);
+    let body = req.body;
 
     Usuario.findByIdAndUpdate(id, body, { new: true, runValidators: true }, (err, usuarioDB) => {
 
